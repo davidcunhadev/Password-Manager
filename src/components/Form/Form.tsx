@@ -1,4 +1,8 @@
-export function Form() {
+type CancelButtonFormProps = {
+  changeState: (event: React.MouseEvent<HTMLButtonElement>) => void
+};
+
+export function Form({ changeState }: CancelButtonFormProps) {
   return (
     <form>
       <fieldset>
@@ -27,13 +31,9 @@ export function Form() {
 
       <fieldset>
 
-        <label htmlFor="Cadastrar">
-          <button>Cadastrar</button>
-        </label>
+        <button onClick={ changeState }>Cancelar</button>
 
-        <label htmlFor="Cancelar">
-          <button>Cancelar</button>
-        </label>
+        <button>Cadastrar</button>
 
       </fieldset>
     </form>
