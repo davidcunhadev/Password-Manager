@@ -1,3 +1,7 @@
+* {
+  background-color: darkslategray;
+}
+
 .valid-password-check {
   color: #aeffb6;
 }

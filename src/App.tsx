@@ -10,6 +10,7 @@ function App() {
   const handleShowForm = () => {
     setIsRegisterNewPasswordVisible(!IsRegisterNewPasswordVisible);
   };
+
   return (
     <div>
 
