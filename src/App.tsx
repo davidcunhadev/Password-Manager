@@ -12,13 +12,14 @@ function App() {
   };
 
   return (
-    <div>
+    <div className="container">
 
       <Title />
       {IsRegisterNewPasswordVisible
         ? <Form changeState={ handleShowForm } />
         : <RegisterButton changeState={ handleShowForm } />}
 
+      <hr />
     </div>
   );
 }

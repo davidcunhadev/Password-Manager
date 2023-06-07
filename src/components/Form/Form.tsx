@@ -31,60 +31,78 @@ export function Form({ changeState }: CancelButtonFormProps) {
     && containsSpecialChars(formData.Senha));
 
   return (
-    <form>
-      <fieldset>
 
-        <label htmlFor="nomeDoServico">
-          Nome do serviço
-          <input
-            onChange={ handleInputs }
-            type="text"
-            id="nomeDoServico"
-            value={ formData.nomeDoServico }
-          />
-        </label>
+    <section>
 
-        <label htmlFor="Login">
-          Login
-          <input
-            onChange={ handleInputs }
-            type="text"
-            id="Login"
-            required
-            value={ formData.Login }
-          />
-        </label>
+      <form>
+        <fieldset>
+          <label htmlFor="nomeDoServico">
+            Nome do serviço
+            <input
+              onChange={ handleInputs }
+              type="text"
+              id="nomeDoServico"
+              value={ formData.nomeDoServico }
+            />
+          </label>
+        </fieldset>
 
-        <label htmlFor="Senha">
-          Senha
-          <input
-            onChange={ handleInputs }
-            type="password"
-            id="Senha"
-            required
-            value={ formData.Senha }
-          />
-        </label>
+        <fieldset className="fieldsetLoginSenha">
+          <label htmlFor="Login">
+            Login *
+            <input
+              onChange={ handleInputs }
+              type="text"
+              id="Login"
+              required
+              value={ formData.Login }
+            />
+          </label>
 
-        <label htmlFor="URL">
-          URL
-          <input
-            onChange={ handleInputs }
-            type="text"
-            id="URL"
-            value={ formData.URL }
-          />
-        </label>
+          <label htmlFor="Senha">
+            Senha *
+            <input
+              onChange={ handleInputs }
+              type="password"
+              id="Senha"
+              required
+              value={ formData.Senha }
+            />
+          </label>
+        </fieldset>
 
-      </fieldset>
+        <fieldset>
+          <label htmlFor="URL">
+            URL
+            <input
+              onChange={ handleInputs }
+              type="text"
+              id="URL"
+              value={ formData.URL }
+            />
+          </label>
+        </fieldset>
 
-      <fieldset>
+        <p>* Campos Obrigatórios</p>
+        <fieldset className="fieldsetButtons">
+          <button className="cancelButton" onClick={ changeState }>Cancelar</button>
 
-        <button onClick={ changeState }>Cancelar</button>
+          <button
+            className="cadastrarButton"
+            disabled={ !checkInputFilled }
+          >
+            Cadastrar
 
-        <button disabled={ !checkInputFilled }>Cadastrar</button>
+          </button>
+        </fieldset>
 
-      </fieldset>
-    </form>
+      </form>
+      <div className="validation-display">
+        <p>Possuir 8 ou mais caracteres</p>
+        <p>Possuir até 16 caracteres</p>
+        <p>Possuir letras e números</p>
+        <p>Possuir algum caractere especial</p>
+      </div>
+    </section>
   );
 }
