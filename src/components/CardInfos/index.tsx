@@ -3,9 +3,10 @@ import './styles.css';
 
 type CardInfosProps = {
   formData: InputTypes
+  handleDeletCard: (ID: number) => void
 };
 
-export function CardInfos({ formData }: CardInfosProps) {
+export function CardInfos({ formData, handleDeletCard }: CardInfosProps) {
   const { nomeDoServico, Login, Senha, URL, ID } = formData;
   return (
     <div key={ ID } className="card-container">
@@ -24,7 +25,11 @@ export function CardInfos({ formData }: CardInfosProps) {
         Senha
         <span>{Senha}</span>
       </p>
-      <button className="button">
+      <button
+        onClick={ () => handleDeletCard(ID) }
+        data-testid="remove-btn"
+        className="button"
+      >
         <img src="./trash-img.svg" alt="" />
       </button>
     </div>

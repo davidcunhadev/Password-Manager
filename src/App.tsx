@@ -25,6 +25,11 @@ function App() {
     setIsRegisterNewPasswordVisible(false);
   };
 
+  const handleDeletCard = (ID: number) => {
+    const filterCard = getCardInfos.filter((card) => card.ID !== ID);
+    setGetCardInfos(filterCard);
+  };
+
   return (
     <div className="container">
 
@@ -44,7 +49,11 @@ function App() {
               <img className="lockerIMG" src="./locker-img.svg" alt="lockerIMG" />
             </div>
           </div>)
-          : getCardInfos.map((card) => (<CardInfos key={ card.ID } formData={ card } />))}
+          : getCardInfos.map((card) => (<CardInfos
+              handleDeletCard={ handleDeletCard }
+              key={ card.ID }
+              formData={ card }
+          />))}
       </div>
     </div>
   );
