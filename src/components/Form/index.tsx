@@ -2,9 +2,11 @@ import { useState } from 'react';
 import { regex } from '../../passwordTips';
 import { CheckPasswordTips } from '../passwordTips';
 import './styles.css';
+import { InputTypes } from '../../InputTypes';
 
 type CancelButtonFormProps = {
   changeState: (event: React.MouseEvent<HTMLButtonElement>) => void
+  handleSubmit: (formData: InputTypes) => void
 };
 
 const formValues = {
@@ -12,9 +14,10 @@ const formValues = {
   Login: '',
   Senha: '',
   URL: '',
+  ID: 0,
 };
 
-export function Form({ changeState }: CancelButtonFormProps) {
+export function Form({ changeState, handleSubmit }: CancelButtonFormProps) {
   const [formData, setformData] = useState(formValues);
 
   const handleInputs = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -33,11 +36,17 @@ export function Form({ changeState }: CancelButtonFormProps) {
     && formData.URL.length > 0
     && regexSpecialCharactPassword(formData.Senha));
 
+  const submitForm = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setformData(formValues);
+    handleSubmit(formData);
+  };
+
   return (
 
     <section className="main-container">
 
-      <form>
+      <form onSubmit={ submitForm }>
         <fieldset>
           <label htmlFor="nomeDoServico">
             Nome do serviço

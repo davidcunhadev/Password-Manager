@@ -2,3 +2,12 @@ body {
   background-color: #272a37;
   font-family: Roboto , sans-serif;
 }
+
+.cardList-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  margin: auto;
+  width: 1500px;
+}
