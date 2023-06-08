@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import './App.css';
-import { Form } from './components/Form/Form';
-import { Title } from './components/Header/Header';
-import { RegisterButton } from './components/RegisterButton/RegisterButton';
+import { Form } from './components/Form';
+import { Header } from './components/Header';
+import { RegisterButton } from './components/RegisterButton';
 
 function App() {
   const [IsRegisterNewPasswordVisible, setIsRegisterNewPasswordVisible] = useState(false);
@@ -14,7 +14,7 @@ function App() {
   return (
     <div className="container">
 
-      <Title />
+      <Header />
       {IsRegisterNewPasswordVisible
         ? <Form changeState={ handleShowForm } />
         : <RegisterButton changeState={ handleShowForm } />}

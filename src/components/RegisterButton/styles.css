@@ -1,0 +1,39 @@
+.containerInitialBtn {
+  display: flex;
+  justify-content: center;
+  margin-top: 45px;
+}
+
+.containerInitialBtn button {
+  background-color: #3590f5;
+  border: none;
+  border-radius: 100px;
+  color: white;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 17px 38px;
+}
+
+hr {
+  margin-top: 58px;
+  width: 291px;
+}
+
+.initialPText {
+  color: #838383;
+  display: flex;
+  font-size: 26px;
+  justify-content: center;
+  margin-top: 200px;
+}
+
+.locker-container {
+  display: flex;
+  justify-content: center;
+}
+
+.lockerIMG {
+  opacity: 0.4;
+  width: 50px;
+}

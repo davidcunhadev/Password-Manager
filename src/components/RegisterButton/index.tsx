@@ -1,3 +1,5 @@
+import './styles.css';
+
 type RegisterButtonProps = {
   changeState: () => void
 };

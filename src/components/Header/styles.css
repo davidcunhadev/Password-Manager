@@ -1,0 +1,12 @@
+.Header {
+  color: white;
+  display: flex;
+  font-size: 30px;
+  justify-content: center;
+  margin-top: 50px;
+  max-width: 100%;
+}
+
+span {
+  color: #3187e7;
+}

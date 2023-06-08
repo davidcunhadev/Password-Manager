@@ -1,4 +1,6 @@
-export function Title() {
+import './styles.css';
+
+export function Header() {
   return (
     <div className="Header">
       <h1>

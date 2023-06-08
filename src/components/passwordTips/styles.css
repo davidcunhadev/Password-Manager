@@ -1,0 +1,22 @@
+.validation-display {
+  align-self: flex-start;
+  background-color: #252730;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 75px;
+  padding: 23px;
+}
+
+.validation-display p {
+  margin: 6px;
+  padding: 0;
+}
+
+.valid-password-check {
+  color: #aeffb6;
+}
+
+.invalid-password-check {
+  color: #f58989;
+}

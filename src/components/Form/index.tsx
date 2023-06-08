@@ -1,4 +1,7 @@
 import { useState } from 'react';
+import { regex } from '../../passwordTips';
+import { CheckPasswordTips } from '../passwordTips';
+import './styles.css';
 
 type CancelButtonFormProps = {
   changeState: (event: React.MouseEvent<HTMLButtonElement>) => void
@@ -21,18 +24,18 @@ export function Form({ changeState }: CancelButtonFormProps) {
     });
   };
 
-  function containsSpecialChars(str: string) {
-    const specialChars = /^(?=.*\d)(?=.*[a-z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
-    return specialChars.test(str);
+  function regexSpecialCharactPassword(str: string) {
+    return regex.test(str);
   }
+
   const checkInputFilled = (formData.nomeDoServico.length > 0
     && formData.Login.length > 0
     && formData.URL.length > 0
-    && containsSpecialChars(formData.Senha));
+    && regexSpecialCharactPassword(formData.Senha));
 
   return (
 
-    <section>
+    <section className="main-container">
 
       <form>
         <fieldset>
@@ -97,12 +100,9 @@ export function Form({ changeState }: CancelButtonFormProps) {
         </fieldset>
 
       </form>
-      <div className="validation-display">
-        <p>Possuir 8 ou mais caracteres</p>
-        <p>Possuir até 16 caracteres</p>
-        <p>Possuir letras e números</p>
-        <p>Possuir algum caractere especial</p>
-      </div>
+
+      <CheckPasswordTips formData={ formData } />
+
     </section>
   );
 }
