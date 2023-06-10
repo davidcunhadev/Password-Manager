@@ -4,9 +4,10 @@ import './styles.css';
 type CardInfosProps = {
   formData: InputTypes
   handleDeletCard: (ID: number) => void
+  isShowingPass: boolean
 };
 
-export function CardInfos({ formData, handleDeletCard }: CardInfosProps) {
+export function CardInfos({ formData, handleDeletCard, isShowingPass }: CardInfosProps) {
   const { nomeDoServico, Login, Senha, URL, ID } = formData;
   return (
     <div key={ ID } className="card-container">
@@ -23,7 +24,8 @@ export function CardInfos({ formData, handleDeletCard }: CardInfosProps) {
       </p>
       <p className="infos">
         Senha
-        <span>{Senha}</span>
+        <span className={ isShowingPass ? 'show' : 'hide' }>{Senha}</span>
+        <span className={ isShowingPass ? 'hide' : 'show' }>******</span>
       </p>
       <button
         onClick={ () => handleDeletCard(ID) }

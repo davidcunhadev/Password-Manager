@@ -11,6 +11,12 @@ function App() {
 
   const [getCardInfos, setGetCardInfos] = useState<InputTypes[]>([]);
 
+  const [markCheckPass, setMarkCheckPass] = useState(false);
+
+  const handleCheckPass = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setMarkCheckPass(event.target.checked);
+  };
+
   const handleShowForm = () => {
     setIsRegisterNewPasswordVisible(!IsRegisterNewPasswordVisible);
   };
@@ -40,20 +46,37 @@ function App() {
 
       <hr />
 
-      <div className="cardList-container">
-        {getCardInfos.length === 0 ? (
-          <div>
-            <p className="initialPText">Não há nenhuma senha cadastrada...</p>
+      <div className="main">
+        <div className="cardList-container">
+          {getCardInfos.length === 0 ? (
+            <div>
+              <p className="initialPText">Não há nenhuma senha cadastrada...</p>
 
-            <div className="locker-container">
-              <img className="lockerIMG" src="./locker-img.svg" alt="lockerIMG" />
-            </div>
-          </div>)
-          : getCardInfos.map((card) => (<CardInfos
-              handleDeletCard={ handleDeletCard }
-              key={ card.ID }
-              formData={ card }
-          />))}
+              <div className="locker-container">
+                <img className="lockerIMG" src="./locker-img.svg" alt="lockerIMG" />
+              </div>
+            </div>)
+            : (
+              <div>
+                <div className="hide-passwords">
+                  <label htmlFor="checkboxPass">
+                    Esconder senhas
+                    <input
+                      onChange={ handleCheckPass }
+                      type="checkbox"
+                      name="checkboxPass"
+                      id="checkboxPass"
+                    />
+                  </label>
+                </div>
+                {getCardInfos.map((card) => (<CardInfos
+                  isShowingPass={ markCheckPass }
+                  handleDeletCard={ handleDeletCard }
+                  key={ card.ID }
+                  formData={ card }
+                />))}
+              </div>)}
+        </div>
       </div>
     </div>
   );
