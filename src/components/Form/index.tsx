@@ -44,7 +44,7 @@ export function Form({ changeState, handleSubmit }: CancelButtonFormProps) {
 
   return (
 
-    <section className="main-container">
+    <section className="form-container">
 
       <form onSubmit={ submitForm }>
         <fieldset>

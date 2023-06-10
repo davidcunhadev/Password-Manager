@@ -4,25 +4,25 @@ body {
 }
 
 .cardList-container {
+  align-items: end;
   display: flex;
-  flex-wrap: wrap;
-  gap: 87px;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: end;
   margin: auto;
   width: 1250px;
 }
 
-.hide-passwords {
+.cardList-container label {
   color: #3590f5;
-  display: flex;
   font-size: 14px;
   font-weight: 400;
-  justify-content: center;
-  margin-left: 900px;
-  margin-top: 30px;
 }
 
-.hide-passwords label {
+.cards-subContainer {
   display: flex;
-  gap: 8px;
+  flex-wrap: wrap;
+  gap: 87px;
+  justify-content: start;
+  width: 100%;
 }
+

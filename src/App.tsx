@@ -40,44 +40,43 @@ function App() {
     <div className="container">
 
       <Header />
-      {IsRegisterNewPasswordVisible
-        ? <Form handleSubmit={ handleCardInfos } changeState={ handleShowForm } />
-        : <RegisterButton changeState={ handleShowForm } />}
 
-      <hr />
+      <main>
+        {IsRegisterNewPasswordVisible
+          ? <Form handleSubmit={ handleCardInfos } changeState={ handleShowForm } />
+          : <RegisterButton changeState={ handleShowForm } />}
 
-      <div className="main">
-        <div className="cardList-container">
-          {getCardInfos.length === 0 ? (
-            <div>
-              <p className="initialPText">Não há nenhuma senha cadastrada...</p>
+        <hr />
 
-              <div className="locker-container">
-                <img className="lockerIMG" src="./locker-img.svg" alt="lockerIMG" />
-              </div>
-            </div>)
-            : (
-              <div>
-                <div className="hide-passwords">
-                  <label htmlFor="checkboxPass">
-                    Esconder senhas
-                    <input
-                      onChange={ handleCheckPass }
-                      type="checkbox"
-                      name="checkboxPass"
-                      id="checkboxPass"
-                    />
-                  </label>
-                </div>
+        {getCardInfos.length === 0 ? (
+          <div>
+            <p className="initialPText">Não há nenhuma senha cadastrada...</p>
+
+            <div className="locker-container">
+              <img className="lockerIMG" src="./locker-img.svg" alt="lockerIMG" />
+            </div>
+          </div>)
+          : (
+            <div className="cardList-container">
+              <label htmlFor="checkboxPass">
+                Esconder senhas
+                <input
+                  onChange={ handleCheckPass }
+                  type="checkbox"
+                  name="checkboxPass"
+                  id="checkboxPass"
+                />
+              </label>
+              <div className="cards-subContainer">
                 {getCardInfos.map((card) => (<CardInfos
                   isShowingPass={ markCheckPass }
                   handleDeletCard={ handleDeletCard }
                   key={ card.ID }
                   formData={ card }
                 />))}
-              </div>)}
-        </div>
-      </div>
+              </div>
+            </div>)}
+      </main>
     </div>
   );
 }

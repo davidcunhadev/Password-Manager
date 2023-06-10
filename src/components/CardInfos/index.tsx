@@ -10,7 +10,7 @@ type CardInfosProps = {
 export function CardInfos({ formData, handleDeletCard, isShowingPass }: CardInfosProps) {
   const { nomeDoServico, Login, Senha, URL, ID } = formData;
   return (
-    <div key={ ID } className="card-container">
+    <div key={ ID } className="card">
       <div className="nav-card">
         <img src="./locker-img.svg" alt="lockerIMG" />
         <a href={ URL } target="_blank" rel="noreferrer">
@@ -24,15 +24,14 @@ export function CardInfos({ formData, handleDeletCard, isShowingPass }: CardInfo
       </p>
       <p className="infos">
         Senha
-        <span className={ isShowingPass ? 'show' : 'hide' }>{Senha}</span>
-        <span className={ isShowingPass ? 'hide' : 'show' }>******</span>
+        {isShowingPass ? <span>******</span> : <span>{Senha}</span>}
       </p>
       <button
         onClick={ () => handleDeletCard(ID) }
         data-testid="remove-btn"
         className="button"
       >
-        <img src="./trash-img.svg" alt="" />
+        <img src="./trash-img.svg" alt="trashImage" />
       </button>
     </div>
   );

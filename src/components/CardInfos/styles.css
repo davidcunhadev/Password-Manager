@@ -1,4 +1,4 @@
-.card-container {
+.card {
   background: #323544;
   border-radius: 10px;
   display: flex;
@@ -50,12 +50,4 @@
   border: none;
   cursor: pointer;
   width: fit-content;
-}
-
-.hide {
-  display: block;
-}
-
-.show {
-  display: none;
 }
