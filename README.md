@@ -15,7 +15,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias e bibliotecas:
 - React
 - TypeScript
 - CSS
-- Jest
+- React Testing Library
 
 <br>
 
