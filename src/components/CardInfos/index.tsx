@@ -2,13 +2,13 @@ import { InputTypes } from '../../InputTypes';
 import './styles.css';
 
 type CardInfosProps = {
-  formData: InputTypes
+  card: InputTypes
   handleDeletCard: (ID: number) => void
   isShowingPass: boolean
 };
 
-export function CardInfos({ formData, handleDeletCard, isShowingPass }: CardInfosProps) {
-  const { nomeDoServico, Login, Senha, URL, ID } = formData;
+export function CardInfos({ card, handleDeletCard, isShowingPass }: CardInfosProps) {
+  const { nomeDoServico, Login, Senha, URL, ID } = card;
   return (
     <div key={ ID } className="card">
       <div className="nav-card">

@@ -72,7 +72,7 @@ function App() {
                   isShowingPass={ markCheckPass }
                   handleDeletCard={ handleDeletCard }
                   key={ card.ID }
-                  formData={ card }
+                  card={ card }
                 />))}
               </div>
             </div>)}
